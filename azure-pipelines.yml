@@ -1,4 +1,3 @@
 # File: templates/npm-steps.yml
 steps:
 - script: npm install
-- script: npm test
