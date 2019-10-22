@@ -12,7 +12,7 @@ stages:
   - job: Validate
     continueOnError: false
     steps:
-    - publish: 1-terraform
+    - publish: democicdk8
       artifact: terraform_out
     - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@0
       displayName: 'Use Terraform v0.12.6'
@@ -22,11 +22,11 @@ stages:
       displayName: 'terraform init'
       inputs:
         command: init
-        workingDirectory: 1-terraform
+        workingDirectory: democicdk8
         backendType: azurerm
         backendServiceArm: 'Azure SPN'
         backendAzureRmResourceGroupName: 'AZK8TF-RG'
-        backendAzureRmStorageAccountName: 'nyuenterraformstate'
+        backendAzureRmStorageAccountName: 'azk8tfsg'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'demo.terraform.tfstate'
     - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformCLI@0
@@ -59,7 +59,7 @@ stages:
               backendType: azurerm
               backendServiceArm: 'Azure SPN'
               backendAzureRmResourceGroupName: 'AZK8TF-RG'
-              backendAzureRmStorageAccountName: 'nyuenterraformstate'
+              backendAzureRmStorageAccountName: 'azk8tfsg'
               backendAzureRmContainerName: 'tfstate'
               backendAzureRmKey: 'demo.terraform.tfstate'
           - task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformCLI@0
