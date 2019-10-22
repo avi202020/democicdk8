@@ -24,7 +24,7 @@ stages:
         command: init
         workingDirectory: democicdk8
         backendType: azurerm
-        backendServiceArm: 'AZK8TFSPN'
+        backendServiceArm: 'Azure SPN'
         backendAzureRmResourceGroupName: 'AZK8TF-RG'
         backendAzureRmStorageAccountName: 'azk8tfsg'
         backendAzureRmContainerName: 'tfstate'
@@ -57,7 +57,7 @@ stages:
               command: init
               workingDirectory: $(Pipeline.Workspace)/terraform_out
               backendType: azurerm
-              backendServiceArm: 'AZK8TFSPN'
+              backendServiceArm: 'Azure SPN'
               backendAzureRmResourceGroupName: 'AZK8TF-RG'
               backendAzureRmStorageAccountName: 'azk8tfsg'
               backendAzureRmContainerName: 'tfstate'
@@ -67,7 +67,7 @@ stages:
             inputs:
               command: plan
               workingDirectory: $(Pipeline.Workspace)/terraform_out
-              environmentServiceName: 'AZK8TFSPN'
+              environmentServiceName: 'Azure SPN'
               secureVarsFile: 'aks_conf.tfvars'
               commandOptions: '-out $(Pipeline.Workspace)/terraform_out/terraform_aks_out'
               terraformVersion: 0.12.6
@@ -76,7 +76,7 @@ stages:
             inputs:
               command: apply
               workingDirectory: $(Pipeline.Workspace)/terraform_out
-              environmentServiceName: 'AZK8TFSPN'
+              environmentServiceName: 'Azure SPN'
               commandOptions: '$(Pipeline.Workspace)/terraform_out/terraform_aks_out'
               terraformVersion: 0.12.6
             
