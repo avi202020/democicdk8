@@ -8,30 +8,30 @@ variable "keyvault_name" {
 
 variable "azure_region" {
   type    = string
-  default = "eastus"
+  default = "ukwest"
 }
 
 #  Resource Group Name
 variable "resource_group" {
   type    = string
-  default = "AKSCluster-RG"
+  default = "AZK8TF-RG"
 }
 
 # AKS Cluster name
 variable "cluster_name" {
   type    = string
-  default = "AKSTerraform"
+  default = "AZK8TFCluster"
 }
 
 #AKS DNS name
 variable "dns_name" {
   type    = string
-  default = "AKSTerraform"
+  default = "AZK8TFDNS"
 }
 
 variable "admin_username" {
   type    = string
-  default = "aksadmin"
+  default = "AZAdmin"
 }
 
 # Specify a valid kubernetes version
